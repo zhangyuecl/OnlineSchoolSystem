@@ -3,15 +3,20 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title></title>
-		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 
-	<body>
+	<body>		
+		<!--[if lte IE 8]>
+			<script>alert(1)</script>
+		<![endif]-->
 		<nav class="navbar navbar-default">
+			<!--<marquee  behavior="scroll" style="position: absolute;"  direction="left" loop="-1" scrollamount="10" scrolldelay="100" onMouseOut="this.start()" onMouseOver="this.stop()">请使用ie8以上版本</marquee>-->
 			<div class="container-fluid clearfix">
 				<div class="navbar-header">
 					<a class="navbar-brand logo" href="#">
@@ -69,9 +74,9 @@
 					<div class="slider-bottom">版本号:V1.0</div>
 				</div>
 				<div class="col-xs-10 col-xs-push-2" style="padding-right: 0;">
-					<iframe src="detail.html" style="border: 0;width: 100%;display: block;">
+					<iframe src="detail.html" style="border: 0;width: 100%;display: block;" frameborder="0">
 					
-					</iframe>					
+					</iframe>
 				</div>
 			</div>
 		</div>
@@ -80,13 +85,13 @@
 		window.onload = function() {
 			domTime();
 			//中间的高度=浏览器窗口大小-上面的距离-下面的距离
-			$('iframe').height(document.body.clientHeight-$('.body').css('padding-top').split('px')[0]-$('.body').css('padding-bottom').split('px')[0])
+			$('iframe').height(document.body.clientHeight - $('.body').css('padding-top').split('px')[0] - $('.body').css('padding-bottom').split('px')[0])
 		};
 		//窗口大小改变时，改变iframe的高度
-		window.onresize=function(){
-			$('iframe').height(document.body.clientHeight-$('.body').css('padding-top').split('px')[0]-$('.body').css('padding-bottom').split('px')[0]);
-		}
-		//每秒显示时间
+		window.onresize = function() {
+				$('iframe').height(document.body.clientHeight - $('.body').css('padding-top').split('px')[0] - $('.body').css('padding-bottom').split('px')[0]);
+			}
+			//每秒显示时间
 		function domTime() {
 			document.getElementById('nowTime').innerHTML = getNowFormatDate();
 			setTimeout("domTime()", 1000);
@@ -118,6 +123,7 @@
 				return x;
 			}
 		}
+
 	</script>
 
 </html>

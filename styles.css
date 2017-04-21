@@ -188,9 +188,13 @@ th {
   background-color: #cb0000;
   border-color: #cb0000;
 }
+.pageIndex-go {
+  padding: 0 10px!important;
+  line-height: 23px!important;
+}
 .pageIndex-go input {
-  width: 25px;
-  height: 18px;
+  width: 36px;
+  height: 28px;
 }
 .pageIndex-go input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -214,6 +218,10 @@ li.go > a:focus {
   right: 0;
   bottom: 0;
   opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
 }
 .btn-file {
   overflow: hidden;
@@ -225,4 +233,18 @@ li.go > a:focus {
   word-break: break-all;
   overflow: hidden;
   height: 20px;
+}
+.search-form .form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+.modal-dialog {
+  margin: 30px auto;
+}
+.col-sm-3 {
+  width: 25%;
+}
+.col-sm-9 {
+  width: 75%;
 }
