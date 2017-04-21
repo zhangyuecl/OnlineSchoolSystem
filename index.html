@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid clearfix">
+				<div class="navbar-header">
+					<a class="navbar-brand logo" href="#">
+						<!--<img alt="Brand" src="http://img.wangxiao.cn/images/img2012/logo.gif">-->
+						<div class="eg">Online school system</div>
+						<div class="cn">云校系统</div>
+					</a>
+				</div>
+				<div class="navbar-right">
+					<div class="navbar-right__top">
+						<span>您好，admin</span>
+						<a href="#" class="link-white"><span class="glyphicon glyphicon-edit"></span>修改密码</a>
+						<a href="#" class="link-white"><span class="glyphicon glyphicon-log-out"></span>退出系统</a>
+					</div>
+					<div class="navbar-right__bottom">现在时间：<span id="nowTime"></span></div>
+				</div>
+			</div>
+		</nav>
+		<div class="container-fluid body">
+			<div class="row">
+				<div class="col-xs-2 slider">
+					<div class="slider-nav">云校管理系统</div>
+					<ul class="slider-list">
+						<li class="slider-list-each active">
+							<a href="">
+								<div>学校管理</div>
+							</a>
+						</li>
+						<li class="slider-list-each">
+							<a href="">
+								<div>老师管理</div>
+							</a>
+						</li>
+						<li class="slider-list-each">
+							<a href="">
+								<div>大纲管理</div>
+							</a>
+						</li>
+						<li class="slider-list-each">
+							<a href="">
+								<div>课程管理</div>
+							</a>
+						</li>
+						<li class="slider-list-each">
+							<a href="">
+								<div>商品管理</div>
+							</a>
+						</li>
+						<li class="slider-list-each">
+							<a href="">
+								<div>结算管理</div>
+							</a>
+						</li>
+					</ul>
+					<div class="slider-bottom">版本号:V1.0</div>
+				</div>
+				<div class="col-xs-10 col-xs-push-2" style="padding-right: 0;">
+					<iframe src="detail.html" style="border: 0;width: 100%;display: block;">
+					
+					</iframe>					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			domTime();
+			//中间的高度=浏览器窗口大小-上面的距离-下面的距离
+			$('iframe').height(document.body.clientHeight-$('.body').css('padding-top').split('px')[0]-$('.body').css('padding-bottom').split('px')[0])
+		};
+		//窗口大小改变时，改变iframe的高度
+		window.onresize=function(){
+			$('iframe').height(document.body.clientHeight-$('.body').css('padding-top').split('px')[0]-$('.body').css('padding-bottom').split('px')[0]);
+		}
+		//每秒显示时间
+		function domTime() {
+			document.getElementById('nowTime').innerHTML = getNowFormatDate();
+			setTimeout("domTime()", 1000);
+		}
+		//获取当前时间
+		function getNowFormatDate() {
+			var date = new Date();
+			var seperator1 = ".";
+			var seperator2 = ":";
+			var month = date.getMonth() + 1;
+			var strDate = date.getDate();
+			if(month >= 1 && month <= 9) {
+				month = "0" + month;
+			}
+			if(strDate >= 0 && strDate <= 9) {
+				strDate = "0" + strDate;
+			}
+			var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+				"&nbsp;&nbsp;&nbsp;" + extra(date.getHours()) + seperator2 + extra(date.getMinutes()) +
+				seperator2 + extra(date.getSeconds());
+			return currentdate;
+		}
+		//补位函数。  
+		function extra(x) {
+			//如果传入数字小于10，数字前补一位0。  
+			if(x < 10) {
+				return "0" + x;
+			} else {
+				return x;
+			}
+		}
+	</script>
+
+</html>
